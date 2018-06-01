@@ -1,3 +1,11 @@
+// 'use strict';
+
+// import GoogleForm from 'google-form-send'
+// var GoogleForm = require('google-form-send')
+
+
+// var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA')
+
 jQuery(document).ready(function($) {
 
   // Header fixed and Back to top button
@@ -119,6 +127,72 @@ jQuery(document).ready(function($) {
       }
     }
   });
+
+  // var GoogleForm = function (link) {
+  //   var findViewform = link.lastIndexOf('viewform')
+  //   if (~findViewform)
+  //     link = link.slice(0, findViewform - 1)
+  //   this.link = link + '/formResponse?ifq'
+  //   this.data = {}
+  // }
+  
+  // GoogleForm.prototype.addField = function (name, data) {
+  //   data = data || ''
+  
+  //   var field = {}
+  //   field[name] = data
+  //   Object.assign(this.data, field)
+  // }
+  
+  // GoogleForm.prototype.setAllFields = function (data) {
+  //   this.data = data
+  // }
+  
+  // GoogleForm.prototype.send = function (isAsyn) {
+  //   isAsyn = isAsyn || false
+  
+  //   var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest
+  //   var xhr = new XHR()
+  //   var data = ''
+  //   for (var name in this.data) {
+  //     data += '&' + name + '=' + encodeURIComponent(this.data[name] || '')
+  //   }
+  
+  //   var sendDataGoogle = this.link + data + '&submit=Submit'
+  //   console.log(sendDataGoogle)
+    
+  //   xhr.open('GET', sendDataGoogle, isAsyn)
+    
+  //   xhr.send()
+  // }
+
+  
+  $('form.contactForm').submit(function() {
+    event.preventDefault();
+    
+    // form.addField('nome', 'pindaiba');
+    // form.send()
+
+    var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA')
+    // var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA/viewform?embedded=true')
+                               
+    console.log(form.link)
+
+    var data = {
+      'entry.1525904630': 'text 1'
+    }
+    form.setAllFields(data)
+
+    // form.setField('entry.3', 'text 3')
+    // form.setField('entry.4', 'text 4')
+
+    console.log(form.data)
+
+    form.send(true)
+
+    alert('submit');
+  })
+
 
   // custom code
 
