@@ -128,72 +128,22 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // var GoogleForm = function (link) {
-  //   var findViewform = link.lastIndexOf('viewform')
-  //   if (~findViewform)
-  //     link = link.slice(0, findViewform - 1)
-  //   this.link = link + '/formResponse?ifq'
-  //   this.data = {}
-  // }
-  
-  // GoogleForm.prototype.addField = function (name, data) {
-  //   data = data || ''
-  
-  //   var field = {}
-  //   field[name] = data
-  //   Object.assign(this.data, field)
-  // }
-  
-  // GoogleForm.prototype.setAllFields = function (data) {
-  //   this.data = data
-  // }
-  
-  // GoogleForm.prototype.send = function (isAsyn) {
-  //   isAsyn = isAsyn || false
-  
-  //   var XHR = ('onload' in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest
-  //   var xhr = new XHR()
-  //   var data = ''
-  //   for (var name in this.data) {
-  //     data += '&' + name + '=' + encodeURIComponent(this.data[name] || '')
-  //   }
-  
-  //   var sendDataGoogle = this.link + data + '&submit=Submit'
-  //   console.log(sendDataGoogle)
-    
-  //   xhr.open('GET', sendDataGoogle, isAsyn)
-    
-  //   xhr.send()
-  // }
-
-  
   $('form.contactForm').submit(function() {
     event.preventDefault();
     
-    // form.addField('nome', 'pindaiba');
-    // form.send()
-
-    var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA')
-    // var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA/viewform?embedded=true')
-                               
-    console.log(form.link)
+    var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSe-eIv2B5Bw5pV7LhFdmUPlnFVbaN1zgMYYw0OApF7DBwhlBA/viewform?usp=sf_link')
 
     var data = {
-      'entry.1525904630': 'text 1'
+      'entry.1884265043': $('#name').val(),
+      'entry.1417095760': $('#email').val(),
+      'entry.281901209': $('#subject').val(),
+      'entry.513669972': $('textarea[name="message"]').val()
     }
     form.setAllFields(data)
-
-    // form.setField('entry.3', 'text 3')
-    // form.setField('entry.4', 'text 4')
-
-    console.log(form.data)
-
+    
     form.send(true)
 
-    alert('submit');
+    alert('Obrigado! Sua mensagem foi enviada com sucesso.');
   })
-
-
-  // custom code
 
 });
