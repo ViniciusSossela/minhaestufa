@@ -117,19 +117,19 @@ jQuery(document).ready(function ($) {
 
   $('#playstore_button').click(function () {
     alert("O applicativo para Android esta quase pronto! Em breve você podera instalar no seu celular e fazer a gestão de forma fácil e ágil.");
-    gtag('event', 'download_app', {
+    gtag('event', 'download_app_click', {
       'event_category': 'store',
-      'event_label': 'store_type',
-      'value': 'playstore'
+      'event_label': 'play_store',
+      'value': 1
     });
   });
 
   $('#appstore_button').click(function () {
     alert("O applicativo para iOS esta quase pronto! Em breve você podera instalar no seu celular e fazer a gestão de forma fácil e ágil.");
-    gtag('event', 'download_app', {
+    gtag('event', 'download_app_click', {
       'event_category': 'store',
-      'event_label': 'store_type',
-      'value': 'appstore'
+      'event_label': 'app_store',
+      'value': 0
     });
   });
 
