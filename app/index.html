@@ -61,29 +61,29 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active">
-            <a href="#intro">Home</a>
+            <a id="home_link" href="#intro">Home</a>
           </li>
           <li>
-            <a href="#about">Sobre nós</a>
+            <a id="about_link" href="#about">Sobre nós</a>
           </li>
           <li>
-            <a href="#features">Funcionalidade</a>
+            <a id="feature_link" href="#features">Funcionalidade</a>
           </li>
           <li>
-            <a href="#team">Time</a>
+            <a id="team_link" href="#team">Equipe</a>
           </li>
           <li>
-            <a href="#gallery">Galeria</a>
+            <a id="gallery_link" href="#gallery">Galeria</a>
           </li>
           <li>
-            <a href="#pricing">Preço</a>
+            <a id="price_link" href="#pricing">Preço</a>
           </li>
           <li>
-            <a href="#dow">Downloads</a>
+            <a id="install_link" href="#dow">Instale agora</a>
           </li>
 
           <li>
-            <a href="#contact">Fale conosco</a>
+            <a id="contact_link" href="#contact">Fale conosco</a>
           </li>
         </ul>
       </nav>
@@ -251,7 +251,7 @@
     <section id="team" class="section-bg">
       <div class="container">
         <div class="section-header">
-          <h3 class="section-title">Nosso Time</h3>
+          <h3 class="section-title">Nossa Equipe</h3>
           <span class="section-divider"></span>
           <p class="section-description">No nosso dia a dia prezamos por controle e agilidade, por isso buscamos com nosso aplicativo gerenciar de forma
             simples e eficaz as estufas agrícolas, com objetivo de gerar o melhor produto para segmento, para nós e nossos
@@ -400,11 +400,6 @@
             dos fornecedores de insumos na venda dos mesmos.</p>
         </div>
 
-        <div class="row">
-
-
-        </div>
-
     </section>
 
     <!--==========================
@@ -412,28 +407,21 @@
       ============================-->
     <section id="dow" class="section-bg">
       <div class="container">
-        <br />
-        <br />
 
         <div class="section-header">
-          <h3 class="section-title">Downloads</h3>
+          <h3 class="section-title">Instale Agora</h3>
           <span class="section-divider"></span>
-          <br />
-          <p class="section-description">Faça o download do aplicativo Minha Estufa no seu smartfone. Gerencie e faça a manutenção das suas estufas agrícolas
-            na palma de sua mão.</p>
-          <div class="text-center">
-            <img id="playstore_button" src="img/google1.png" style="margin-right:50px; cursor: pointer;" alt="página da Google Play Store" width="200">
-            <img id="appstore_button" src="img/appstore1.png" style="margin-left:50px; cursor: pointer;" alt="página da AppStore" width="200">
-          </div>
+          <p class="section-description">Instale agora o aplicativo Minha Estufa no seu celular e gerencie sua estufa agrícola na palma de sua mão.</p>
           </p>
         </div>
 
         <div class="row">
-          <br />
-          <br />
-          <br />
-
-
+          <div class="col-lg-6 col-md-6" style="text-align: center;">
+            <img id="playstore_button" src="img/google1.png" style="cursor: pointer;" alt="página da Google Play Store" width="200">
+          </div>
+          <div class="col-lg-6 col-md-6" style="text-align: center; margin-bottom: 50px">
+            <img id="appstore_button" src="img/appstore1.png" style="cursor: pointer;" alt="página da AppStore" width="200">
+          </div>
         </div>
       </div>
     </section>
@@ -456,21 +444,9 @@
               <p>Buscamos de forma organizada o melhor controle para estufas agricolas, as maiores vantagens para nossos clientes
                 na compra de revestimento de modo fácil e simples.</p>
               <div class="social-links">
-                <!-- <a href="#" class="twitter">
-                  <i class="fa fa-twitter"></i>
-                </a> -->
                 <a href="https://www.facebook.com/minhaestufa" class="facebook">
                   <i class="fa fa-facebook"></i>
                 </a>
-                <!-- <a href="#" class="instagram">
-                  <i class="fa fa-instagram"></i>
-                </a>
-                <a href="#" class="google-plus">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-                <a href="#" class="linkedin">
-                  <i class="fa fa-linkedin"></i>
-                </a> -->
               </div>
 
               <div class="col-lg-3 col-md-4">
@@ -493,28 +469,27 @@
 
           <div class="col-lg-5 col-md-8">
             <div class="form">
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form id="contact_form" action="" method="post" role="form" class="contactForm">
                 <div class="form-row">
                   <div class="form-group col-lg-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                    <input type="text" name="name" class="form-control" required id="name" placeholder="Nome" minlength="2" data-msg="Deve conter mais que 4 caracteres"
                     />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email"
+                    <input type="email" class="form-control" name="email" id="email" required placeholder="E-mail" data-rule="email" data-msg="Por favor informe um e-mail válido"
                     />
                     <div class="validation"></div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"
-                  />
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" minlength="4" data-rule="minlen:4"
+                    data-msg="Deve conter mais que 8 caracteres" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Escreva sua mensagem"></textarea>
+                  <textarea class="form-control" name="message" rows="5" data-msg="Escreva uma mensagem para nós" placeholder="Escreva sua mensagem"></textarea>
                   <div class="validation"></div>
                 </div>
                 <div class="text-center">

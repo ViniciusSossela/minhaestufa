@@ -133,23 +133,77 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  $('#home_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'pagina_inicial'
+    });
+  });
+  $('#about_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'sobre_nos'
+    });
+  });
+  $('#feature_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'funcionalidades'
+    });
+  });
+  $('#team_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'equipe'
+    });
+  });
+  $('#gallery_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'galeria'
+    });
+  });
+  $('#price_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'preco'
+    });
+  });
+  $('#install_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'instale_agora'
+    });
+  });
+  $('#contact_link').click(function () {
+    gtag('event', 'page_click', {
+      'event_category': 'top',
+      'event_label': 'contato'
+    });
+  });
+
 
   $('form.contactForm').submit(function () {
     event.preventDefault();
+    
+    var formSubmit = document.getElementById('contact_form')
+    if (formSubmit.checkValidity()) {
+      var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSe-eIv2B5Bw5pV7LhFdmUPlnFVbaN1zgMYYw0OApF7DBwhlBA/viewform?usp=sf_link')
 
-    var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSe-eIv2B5Bw5pV7LhFdmUPlnFVbaN1zgMYYw0OApF7DBwhlBA/viewform?usp=sf_link')
+      var data = {
+        'entry.1884265043': $('#name').val(),
+        'entry.1417095760': $('#email').val(),
+        'entry.281901209': $('#subject').val(),
+        'entry.513669972': $('textarea[name="message"]').val()
+      }
+      form.setAllFields(data)
 
-    var data = {
-      'entry.1884265043': $('#name').val(),
-      'entry.1417095760': $('#email').val(),
-      'entry.281901209': $('#subject').val(),
-      'entry.513669972': $('textarea[name="message"]').val()
-    }
-    form.setAllFields(data)
+      form.send(true)
 
-    form.send(true)
+      alert('Obrigado! Seu contato foi realizado com sucesso.');
+    } else
+      alert('Por favor preencha os dados corretamente.');
 
-    alert('Obrigado! Seu contato foi realizado com sucesso.');
   })
 
 });
