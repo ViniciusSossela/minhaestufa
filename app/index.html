@@ -38,21 +38,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
- 
-  <script type="text/javascript">
-    function mensagemapp(){
-      alert("Obrigado por clicar no link do download, nossa equipe esta desenvolvendo o aplicativo Minha Estufa.");
-    }
-  </script>
-
-  <script type="text/javascript">
-    function handleOutboundLinkClicks(event) {
-      gtag('event', 'click', {
-        'event_category': 'downloads',
-        'event_label': 'minhaestufa'
-      });
-    }
-  </script>
 
 </head>
 
@@ -96,7 +81,7 @@
           <li>
             <a href="#dow">Downloads</a>
           </li>
-          
+
           <li>
             <a href="#contact">Fale conosco</a>
           </li>
@@ -270,7 +255,8 @@
           <span class="section-divider"></span>
           <p class="section-description">No nosso dia a dia prezamos por controle e agilidade, por isso buscamos com nosso aplicativo gerenciar de forma
             simples e eficaz as estufas agrícolas, com objetivo de gerar o melhor produto para segmento, para nós e nossos
-            cliente.</p>
+            cliente.
+          </p>
         </div>
         <div class="row wow fadeInUp">
           <div class="col-lg-4 col-md-6">
@@ -418,7 +404,7 @@
 
 
         </div>
-        
+
     </section>
 
     <!--==========================
@@ -428,28 +414,29 @@
       <div class="container">
         <br />
         <br />
-        
+
         <div class="section-header">
           <h3 class="section-title">Downloads</h3>
           <span class="section-divider"></span>
           <br />
           <p class="section-description">Faça o download do aplicativo Minha Estufa no seu smartfone. Gerencie e faça a manutenção das suas estufas agrícolas
             na palma de sua mão.</p>
-            <div class="text-center">
-            
-              <a onclick="handleOutboundLinkClicks(event);mensagemapp();">
-                <img src="img/google1.png" alt="página da Google Play Store" width="200">
+          <div class="text-center">
+
+            <img id="playstore_button" src="img/google1.png" style="margin-right:50px" alt="página da Google Play Store" width="200">
+            <img id="appstore_button" src="img/appstore1.png" style="margin-left:50px" alt="página da AppStore" width="200">
+            <!-- <a onclick="handleOutboundLinkClicks(event);mensagemapp();">
+                <img id="playstore_button" src="img/google1.png" alt="página da Google Play Store" width="200">
               </a>
           
 
-            </a>
               <a onclick="handleOutboundLinkClicks(event);mensagemapp();">
-                <img src="img/appstore1.png" alt="página da AppStore" width="200">
-              </a>
-            
-            </div>
-            </p>
-            </div>
+                <img id="appstore_button" src="img/appstore1.png" alt="página da AppStore" width="200">
+              </a> -->
+
+          </div>
+          </p>
+        </div>
 
         <div class="row">
           <br />

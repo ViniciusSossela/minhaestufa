@@ -1,15 +1,7 @@
-// 'use strict';
 
-// import GoogleForm from 'google-form-send'
-// var GoogleForm = require('google-form-send')
+jQuery(document).ready(function ($) {
 
-
-// var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSc1HRkXFZziTANZSuMqh8RRCiDU8U1ESJvdnu0qJSBaZr1bFA')
-
-jQuery(document).ready(function($) {
-
-  // Header fixed and Back to top button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $('.back-to-top').fadeIn('slow');
       $('#header').addClass('header-fixed');
@@ -18,17 +10,15 @@ jQuery(document).ready(function($) {
       $('#header').removeClass('header-fixed');
     }
   });
-  $('.back-to-top').click(function() {
+  $('.back-to-top').click(function () {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
   });
 
-  // Initiate the wowjs animation library
   new WOW().init();
 
-  // Initiate superfish on nav menu
   $('.nav-menu').superfish({
     animation: {
       opacity: 'show'
@@ -36,7 +26,6 @@ jQuery(document).ready(function($) {
     speed: 400
   });
 
-  // Mobile Navigation
   if ($('#nav-menu-container').length) {
     var $mobile_nav = $('#nav-menu-container').clone().prop({
       id: 'mobile-nav'
@@ -50,19 +39,19 @@ jQuery(document).ready(function($) {
     $('body').append('<div id="mobile-body-overly"></div>');
     $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
 
-    $(document).on('click', '.menu-has-children i', function(e) {
+    $(document).on('click', '.menu-has-children i', function (e) {
       $(this).next().toggleClass('menu-item-active');
       $(this).nextAll('ul').eq(0).slideToggle();
       $(this).toggleClass("fa-chevron-up fa-chevron-down");
     });
 
-    $(document).on('click', '#mobile-nav-toggle', function(e) {
+    $(document).on('click', '#mobile-nav-toggle', function (e) {
       $('body').toggleClass('mobile-nav-active');
       $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
       $('#mobile-body-overly').toggle();
     });
 
-    $(document).click(function(e) {
+    $(document).click(function (e) {
       var container = $("#mobile-nav, #mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         if ($('body').hasClass('mobile-nav-active')) {
@@ -76,8 +65,7 @@ jQuery(document).ready(function($) {
     $("#mobile-nav, #mobile-nav-toggle").hide();
   }
 
-  // Smoth scroll on page hash links
-  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
+  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       if (target.length) {
@@ -86,7 +74,7 @@ jQuery(document).ready(function($) {
         if ($('#header').length) {
           top_space = $('#header').outerHeight();
 
-          if( ! $('#header').hasClass('header-fixed') ) {
+          if (!$('#header').hasClass('header-fixed')) {
             top_space = top_space - 20;
           }
         }
@@ -110,7 +98,6 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // Gallery - uses the magnific popup jQuery plugin
   $('.gallery-popup').magnificPopup({
     type: 'image',
     removalDelay: 300,
@@ -122,15 +109,34 @@ jQuery(document).ready(function($) {
       enabled: true,
       duration: 300,
       easing: 'ease-in-out',
-      opener: function(openerElement) {
+      opener: function (openerElement) {
         return openerElement.is('img') ? openerElement : openerElement.find('img');
       }
     }
   });
 
-  $('form.contactForm').submit(function() {
+  $('#playstore_button').click(function () {
+    alert("O applicativo para Android esta quase pronto! Em breve você podera instalar no seu celular e fazer a gestão de forma fácil e ágil.");
+    gtag('event', 'download_app', {
+      'event_category': 'store',
+      'event_label': 'store_type',
+      'value': 'playstore'
+    });
+  });
+
+  $('#appstore_button').click(function () {
+    alert("O applicativo para iOS esta quase pronto! Em breve você podera instalar no seu celular e fazer a gestão de forma fácil e ágil.");
+    gtag('event', 'download_app', {
+      'event_category': 'store',
+      'event_label': 'store_type',
+      'value': 'appstore'
+    });
+  });
+
+
+  $('form.contactForm').submit(function () {
     event.preventDefault();
-    
+
     var form = new GoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSe-eIv2B5Bw5pV7LhFdmUPlnFVbaN1zgMYYw0OApF7DBwhlBA/viewform?usp=sf_link')
 
     var data = {
@@ -140,10 +146,10 @@ jQuery(document).ready(function($) {
       'entry.513669972': $('textarea[name="message"]').val()
     }
     form.setAllFields(data)
-    
+
     form.send(true)
 
-    alert('Obrigado! Sua mensagem foi enviada com sucesso.');
+    alert('Obrigado! Seu contato foi realizado com sucesso.');
   })
 
 });
